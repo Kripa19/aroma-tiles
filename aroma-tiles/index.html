@@ -117,9 +117,10 @@
 
       <div class="product-grid">
         <article class="product-card" style="--pc-1: #C9963D; --pc-2: #A85A2E;">
-          <div class="product-visual product-visual--photo"
+          <div class="product-visual product-visual--photo zoomable"
             style="background-image:url('assets/floor.jpg'); background-size: cover; background-position: center;"
-            aria-hidden="true"></div>
+            data-zoom-src="assets/floor.jpg" data-zoom-name="Floor Tiles — Bottochino Beige"
+            aria-label="Click to enlarge Floor Tiles photo" role="button" tabindex="0"></div>
           <div class="product-body">
             <h3>Floor Tiles</h3>
             <p>Durable, slip-resistant tiles engineered for living rooms, corridors and high-traffic areas.</p>
@@ -127,9 +128,10 @@
         </article>
 
         <article class="product-card" style="--pc-1: #6E8E8C; --pc-2: #1B2A3D;">
-          <div class="product-visual product-visual--photo"
+          <div class="product-visual product-visual--photo zoomable"
             style="background-image:url('assets/wall.jpg'); background-size: cover; background-position: center;"
-            aria-hidden="true"></div>
+            data-zoom-src="assets/wall.jpg" data-zoom-name="Wall Tiles — Persian Grey"
+            aria-label="Click to enlarge Wall Tiles photo" role="button" tabindex="0"></div>
           <div class="product-body">
             <h3>Wall Tiles</h3>
             <p>Textured and flat-finish wall tiles that add depth and character to kitchens and feature walls.</p>
@@ -137,19 +139,23 @@
         </article>
 
         <article class="product-card" style="--pc-1: #A85A2E; --pc-2: #C9963D;">
-          <div class="product-visual product-visual--photo"
-            style="background-image:url('assets/bathroom.jpg'); background-size: cover; background-position: center;"
-            aria-hidden="true"></div>
+          <div class="product-visual product-visual--photo zoomable"
+            style="background-image:url('assets/bathroom-banner.jpg'); background-size: cover; background-position: center;"
+            data-zoom-src="./assets/bathroom-banner.jpg" data-zoom-name="Bathroom Tiles — Cross Enorma"
+            aria-label="Click to enlarge Bathroom Tiles photo" role="button" tabindex="0"></div>
           <div class="product-body">
-            <h3>Living RoomTiles</h3>
-            <p>Water-resistant, easy-to-clean tiles built for wet areas — without sacrificing on style.</p>
+            <h3>Bathroom Tiles</h3>
+            <p>Transform your bathroom with water-resistant, easy-to-maintain tiles that combine beauty, durability, and
+              modern design.
+            </p>
           </div>
         </article>
 
         <article class="product-card" style="--pc-1: #1B2A3D; --pc-2: #6E8E8C;">
-          <div class="product-visual product-visual--photo"
+          <div class="product-visual product-visual--photo zoomable"
             style="background-image:url('assets/ceramic.jpg'); background-size: cover; background-position: center;"
-            aria-hidden="true"></div>
+            data-zoom-src="assets/ceramic.jpg" data-zoom-name="Ceramic Tiles — Wooden Strip"
+            aria-label="Click to enlarge Ceramic Tiles photo" role="button" tabindex="0"></div>
           <div class="product-body">
             <h3>Ceramic Tiles</h3>
             <p>Classic, versatile ceramic tiles in a range of finishes — a dependable choice for any room.</p>
@@ -168,28 +174,154 @@
 
       <div class="swatch-grid">
         <div class="swatch-card">
-          <div class="swatch-photo" style="background-image:url('assets/sabbia_bianco.jpg');"></div>
+          <div class="swatch-photo zoomable" style="background-image:url('assets/sabbia_bianco.jpg');"
+            data-zoom-src="assets/sabbia_bianco.jpg" data-zoom-name="Sabbia Bianco"
+            aria-label="Click to enlarge Sabbia Bianco" role="button" tabindex="0"></div>
           <span class="swatch-name">Sabbia Bianco</span>
         </div>
         <div class="swatch-card">
-          <div class="swatch-photo" style="background-image:url('assets/sabbia_beige.jpg');"></div>
+          <div class="swatch-photo zoomable" style="background-image:url('assets/sabbia_beige.jpg');"
+            data-zoom-src="assets/sabbia_beige.jpg" data-zoom-name="Sabbia Beige"
+            aria-label="Click to enlarge Sabbia Beige" role="button" tabindex="0"></div>
           <span class="swatch-name">Sabbia Beige</span>
         </div>
         <div class="swatch-card">
-          <div class="swatch-photo" style="background-image:url('assets/sabbia_griss.jpg');"></div>
+          <div class="swatch-photo zoomable" style="background-image:url('assets/sabbia_griss.jpg');"
+            data-zoom-src="assets/sabbia_griss.jpg" data-zoom-name="Sabbia Griss"
+            aria-label="Click to enlarge Sabbia Griss" role="button" tabindex="0"></div>
           <span class="swatch-name">Sabbia Griss</span>
         </div>
         <div class="swatch-card">
-          <div class="swatch-photo" style="background-image:url('assets/sabbia_cloud.jpg');"></div>
+          <div class="swatch-photo zoomable" style="background-image:url('assets/sabbia_cloud.jpg');"
+            data-zoom-src="assets/sabbia_cloud.jpg" data-zoom-name="Sabbia Cloud"
+            aria-label="Click to enlarge Sabbia Cloud" role="button" tabindex="0"></div>
           <span class="swatch-name">Sabbia Cloud</span>
         </div>
         <div class="swatch-card">
-          <div class="swatch-photo" style="background-image:url('assets/sabbia_strom.jpg');"></div>
+          <div class="swatch-photo zoomable" style="background-image:url('assets/sabbia_strom.jpg');"
+            data-zoom-src="assets/sabbia_strom.jpg" data-zoom-name="Sabbia Strom"
+            aria-label="Click to enlarge Sabbia Strom" role="button" tabindex="0"></div>
           <span class="swatch-name">Sabbia Strom</span>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ===================== BROWSE BY ROOM ===================== -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <p class="eyebrow center">Find Your Fit</p>
+      <h2 class="section-title center">Browse tiles by room</h2>
+      <p class="section-sub center">Tap a category to see every tile we recommend for that space.</p>
+
+      <div class="category-grid">
+        <div class="category-card" data-category="living-room" role="button" tabindex="0"
+          aria-label="View Living Room tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/living_room.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🏠</span>
+            <span class="category-title">Living Room</span>
+            <span class="category-count">5 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="bedroom" role="button" tabindex="0" aria-label="View Bedroom tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/bedroom.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🛏️</span>
+            <span class="category-title">Bedroom</span>
+            <span class="category-count">4 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="kitchen" role="button" tabindex="0" aria-label="View Kitchen tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/kitchen.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🍳</span>
+            <span class="category-title">Kitchen</span>
+            <span class="category-count">4 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="bathroom" role="button" tabindex="0" aria-label="View Bathroom tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/bathroom-banner.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🛁</span>
+            <span class="category-title">Bathroom</span>
+            <span class="category-count">4 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="dining-room" role="button" tabindex="0"
+          aria-label="View Dining Room tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/dining_room.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🍽️</span>
+            <span class="category-title">Dining Room</span>
+            <span class="category-count">4 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="balcony" role="button" tabindex="0"
+          aria-label="View Balcony and Terrace tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/balcony.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🌿</span>
+            <span class="category-title">Balcony &amp; Terrace</span>
+            <span class="category-count">5 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="outdoor" role="button" tabindex="0" aria-label="View Outdoor tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/outdoor.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🌳</span>
+            <span class="category-title">Outdoor Tiles</span>
+            <span class="category-count">4 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="wooden" role="button" tabindex="0"
+          aria-label="View Wooden Look tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/wooden_look.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🌲</span>
+            <span class="category-title">Wooden Look</span>
+            <span class="category-count">5 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="stone" role="button" tabindex="0" aria-label="View Stone Look tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/stone_look.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">🪨</span>
+            <span class="category-title">Stone Look</span>
+            <span class="category-count">4 tiles</span>
+          </div>
+        </div>
+
+        <div class="category-card" data-category="marble" role="button" tabindex="0"
+          aria-label="View Marble Look tiles">
+          <div class="category-photo" style="background-image:url('assets/covers/marble_look.jpg');"></div>
+          <div class="category-overlay">
+            <span class="category-icon">✨</span>
+            <span class="category-title">Marble Look</span>
+            <span class="category-count">5 tiles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATEGORY MODAL ===================== -->
+  <div class="category-modal" id="categoryModal" role="dialog" aria-modal="true" aria-label="Tile category gallery">
+    <div class="category-modal-inner">
+      <button class="category-modal-close" id="categoryModalClose" aria-label="Close gallery">&times;</button>
+      <p class="category-modal-icon" id="categoryModalIcon"></p>
+      <h3 class="category-modal-title" id="categoryModalTitle"></h3>
+      <div class="category-modal-grid" id="categoryModalGrid"></div>
+    </div>
+  </div>
 
   <!-- ===================== CTA STRIP ===================== -->
   <section class="cta-strip">
@@ -254,6 +386,13 @@
   </section>
 
   <!-- ===================== FOOTER ===================== -->
+  <!-- ===================== LIGHTBOX (image zoom) ===================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged tile photo">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close enlarged photo">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <img src="assets/logo.png" alt="Aroma Tiles logo" class="footer-logo">

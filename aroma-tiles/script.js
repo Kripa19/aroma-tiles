@@ -89,3 +89,209 @@ contactForm.addEventListener('submit', (e) => {
   formNote.textContent = `Thanks, ${name}! We'll get back to you soon.`;
   contactForm.reset();
 });
+
+// ---- Lightbox: click any tile photo to see it enlarged ----
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, name) {
+  lightboxImg.src = src;
+  lightboxImg.alt = name || 'Enlarged tile photo';
+  lightboxCaption.textContent = name || '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.zoomable').forEach((el) => {
+  el.addEventListener('click', () => {
+    openLightbox(el.dataset.zoomSrc, el.dataset.zoomName);
+  });
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox(el.dataset.zoomSrc, el.dataset.zoomName);
+    }
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
+
+// ---- Category browsing: data for each room/style category ----
+const categoryData = {
+  'living-room': {
+    icon: '🏠',
+    title: 'Living Room',
+    tiles: [
+      { name: 'Statuario Classico', src: 'assets/tiles/statuario_classico.jpg' },
+      { name: 'Marmolino', src: 'assets/tiles/marmolino.jpg' },
+      { name: 'Persian Grey', src: 'assets/tiles/persian_grey.jpg' },
+      { name: 'Tundra Griss', src: 'assets/tiles/tundra_griss.jpg' },
+      { name: 'Solid Ivory', src: 'assets/tiles/solid_ivory.jpg' },
+    ]
+  },
+  'bedroom': {
+    icon: '🛏️',
+    title: 'Bedroom',
+    tiles: [
+      { name: 'Mono Dove', src: 'assets/tiles/mono_dove.jpg' },
+      { name: 'Mono Crema', src: 'assets/tiles/mono_crema.jpg' },
+      { name: 'Solid White', src: 'assets/tiles/solid_white.jpg' },
+      { name: 'Radia Light', src: 'assets/tiles/radia_light.jpg' },
+    ]
+  },
+  'kitchen': {
+    icon: '🍳',
+    title: 'Kitchen',
+    tiles: [
+      { name: 'Bottochino Beige', src: 'assets/tiles/bottochino_beige.jpg' },
+      { name: 'Tomas Grey', src: 'assets/tiles/tomas_grey.jpg' },
+      { name: 'Marbelano', src: 'assets/tiles/marbelano.jpg' },
+      { name: 'Masso Bianco', src: 'assets/tiles/masso_bianco.jpg' },
+    ]
+  },
+  'bathroom': {
+    icon: '🛁',
+    title: 'Bathroom',
+    tiles: [
+      { name: 'Onyx Ice', src: 'assets/tiles/onyx_ice.jpg' },
+      { name: 'Persian Grey', src: 'assets/tiles/persian_grey.jpg' },
+      { name: 'Masso Bianco', src: 'assets/tiles/masso_bianco.jpg' },
+      { name: 'Helix Aqua', src: 'assets/tiles/helix_aqua.jpg' },
+    ]
+  },
+  'dining-room': {
+    icon: '🍽️',
+    title: 'Dining Room',
+    tiles: [
+      { name: 'Statuario Classico', src: 'assets/tiles/statuario_classico.jpg' },
+      { name: 'Bottochino Beige', src: 'assets/tiles/bottochino_beige.jpg' },
+      { name: 'Radia Light', src: 'assets/tiles/radia_light.jpg' },
+      { name: 'Solid Ivory', src: 'assets/tiles/solid_ivory.jpg' },
+    ]
+  },
+  'balcony': {
+    icon: '🌿',
+    title: 'Balcony & Terrace',
+    tiles: [
+      { name: 'Helix Terra', src: 'assets/tiles/helix_terra.jpg' },
+      { name: 'Helix Aqua', src: 'assets/tiles/helix_aqua.jpg' },
+      { name: 'Quadro Stone', src: 'assets/tiles/quadro_stone.jpg' },
+      { name: 'Sabbia Griss', src: 'assets/sabbia_griss.jpg' },
+      { name: 'Giro Stone', src: 'assets/tiles/giro_stone.jpg' },
+    ]
+  },
+  'outdoor': {
+    icon: '🌳',
+    title: 'Outdoor Tiles',
+    tiles: [
+      { name: 'Matone Nero', src: 'assets/tiles/matone_nero.jpg' },
+      { name: 'Quadro Sand', src: 'assets/tiles/quadro_sand.jpg' },
+      { name: 'Sabbia Strom', src: 'assets/sabbia_strom.jpg' },
+      { name: 'Giro Griss', src: 'assets/tiles/giro_griss.jpg' },
+    ]
+  },
+  'wooden': {
+    icon: '🌲',
+    title: 'Wooden Look Tiles',
+    tiles: [
+      { name: 'Teakwood', src: 'assets/tiles/teakwood.jpg' },
+      { name: 'Madera Knot', src: 'assets/tiles/madera_knot.jpg' },
+      { name: 'Marbowood', src: 'assets/tiles/marbowood.jpg' },
+      { name: 'Wooden Strip', src: 'assets/tiles/wooden_strip.jpg' },
+      { name: 'Wooden Brick', src: 'assets/tiles/wooden_brick.jpg' },
+    ]
+  },
+  'stone': {
+    icon: '🪨',
+    title: 'Stone Look Tiles',
+    tiles: [
+      { name: 'Masso Bianco', src: 'assets/tiles/masso_bianco.jpg' },
+      { name: 'Masso Nero', src: 'assets/tiles/masso_nero.jpg' },
+      { name: 'Quadro Stone', src: 'assets/tiles/quadro_stone.jpg' },
+      { name: 'Giro Stone', src: 'assets/tiles/giro_stone.jpg' },
+    ]
+  },
+  'marble': {
+    icon: '✨',
+    title: 'Marble Look Tiles',
+    tiles: [
+      { name: 'Statuario Classico', src: 'assets/tiles/statuario_classico.jpg' },
+      { name: 'Marmolino', src: 'assets/tiles/marmolino.jpg' },
+      { name: 'Onyx Ice', src: 'assets/tiles/onyx_ice.jpg' },
+      { name: 'Bottochino Beige', src: 'assets/tiles/bottochino_beige.jpg' },
+      { name: 'Persian Grey', src: 'assets/tiles/persian_grey.jpg' },
+    ]
+  },
+};
+
+const categoryModal = document.getElementById('categoryModal');
+const categoryModalClose = document.getElementById('categoryModalClose');
+const categoryModalIcon = document.getElementById('categoryModalIcon');
+const categoryModalTitle = document.getElementById('categoryModalTitle');
+const categoryModalGrid = document.getElementById('categoryModalGrid');
+
+function openCategoryModal(key) {
+  const data = categoryData[key];
+  if (!data) return;
+
+  categoryModalIcon.textContent = data.icon;
+  categoryModalTitle.textContent = data.title;
+  categoryModalGrid.innerHTML = '';
+
+  data.tiles.forEach((tile) => {
+    const item = document.createElement('div');
+    item.className = 'category-modal-item';
+
+    const photo = document.createElement('div');
+    photo.className = 'category-modal-photo';
+    photo.style.backgroundImage = `url('${tile.src}')`;
+    photo.addEventListener('click', () => openLightbox(tile.src, tile.name));
+
+    const name = document.createElement('span');
+    name.className = 'category-modal-name';
+    name.textContent = tile.name;
+
+    item.appendChild(photo);
+    item.appendChild(name);
+    categoryModalGrid.appendChild(item);
+  });
+
+  categoryModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCategoryModal() {
+  categoryModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.category-card').forEach((card) => {
+  card.addEventListener('click', () => openCategoryModal(card.dataset.category));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openCategoryModal(card.dataset.category);
+    }
+  });
+});
+
+categoryModalClose.addEventListener('click', closeCategoryModal);
+categoryModal.addEventListener('click', (e) => {
+  if (e.target === categoryModal) closeCategoryModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && categoryModal.classList.contains('open')) closeCategoryModal();
+});
